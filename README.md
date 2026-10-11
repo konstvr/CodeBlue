@@ -4,10 +4,6 @@ A small 3D emergency-department game. Triage the patients, get them into a bed,
 run the right test, give the right treatment, don't lose anyone. Solo, or local
 two-player co-op on one keyboard.
 
-**▶ Play: `https://<your-username>.github.io/<repo>/`**
-
-Made for Βράδια Έρευνας / Researchers' Night 2026 at the University of Crete.
-
 ---
 
 ## Modes
@@ -57,63 +53,6 @@ tier means the same thing alone or with a friend.
 
 Both players share one department, one wallet and one set of lives — they're
 helping each other, not competing. P1 wears a blue ring, P2 an amber one.
-
----
-
-## Publishing it
-
-**One file: `index.html`.** three.js is bundled inside it — no images, no
-stylesheets, no build step, no dependencies. It makes zero external network
-requests unless you switch on analytics below.
-
-1. Create a public GitHub repository.
-2. Upload `index.html` (and this `README.md`).
-3. **Settings → Pages** → Source: *Deploy from a branch*, branch `main`,
-   folder `/ (root)` → Save.
-4. About a minute later it's live at
-   `https://<your-username>.github.io/<repo>/`
-
-Because it's one self-contained file, it works just as well emailed, put on a
-USB stick, or opened from disk with no connection at all.
-
----
-
-## Analytics (optional, off by default)
-
-Find this line near the top of `index.html`:
-
-```js
-var GOATCOUNTER_CODE = '';
-```
-
-Put your [GoatCounter](https://www.goatcounter.com) code between the quotes
-(from your dashboard URL, `https://MY-CODE.goatcounter.com`). Leave it empty
-and nothing loads at all — no script, no request.
-
-**Why GoatCounter:** no cookies, and nothing written to the visitor's browser.
-Sessions are a salted hash of IP + User-Agent held in memory for 8 hours and
-never stored; IP addresses aren't kept. In practice that means no consent
-banner. Free for non-commercial use, and it supports custom events.
-
-Beyond pageviews, the game reports these anonymous aggregate events:
-
-| event | tells you |
-|---|---|
-| `start/<mode>/<players>p/<difficulty>` | which setup people pick |
-| `character/<species>` | which animal is most popular |
-| `gameover/<difficulty>/day-<n>` | how far people get — the key tuning number |
-| `treated/<bucket>` | patients treated per run |
-| `feedback/rating/<1-5>` | star ratings in aggregate |
-| `feedback/who/<pupil\|student\|parent\|health-pro\|other>` | who's playing |
-| `feedback/with-comment` | that a comment was left, not what it said |
-
-Two deliberate limits:
-
-- **Free-text comments are never sent.** They're the visitor's own words.
-- **Nothing loads from a `file://` page**, even with a code set, so a
-  downloaded copy stays completely offline.
-
-An explicit Do Not Track signal also disables it.
 
 ---
 
